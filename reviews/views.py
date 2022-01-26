@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 # Register your models here.
-from .models import FoodType, Restaurant, Review 
+from .models import Restaurant, Review 
 from django.views import generic
 from django.views.generic.base import TemplateView
 from django.shortcuts import get_object_or_404
@@ -14,6 +14,26 @@ def index(request):
 # The list of restaurants (restaurant_list.html)
 class RestaurantListView(generic.ListView):
     model = Restaurant
+
+def RestaurantList(request):
+    """View function for home page of site."""
+
+    # Generate counts of some of the main objects
+    restaurants = Restaurant.objects.all()
+    restaurantsRestaurant = Restaurant.objects.filter(style='Restaurant')
+    restaurantsCafe = Restaurant.objects.filter(style='Café')
+    restaurantsMarket = Restaurant.objects.filter(style='Market')
+    
+
+    context = {
+        'restaurants': restaurants,
+        'restaurantsRestaurant': restaurantsRestaurant,
+        'restaurantsCafe': restaurantsCafe,
+        'restaurantsMarket': restaurantsMarket,
+    }
+
+    # Render the HTML template index.html with the data in the context variable
+    return render(request, 'reviews/restaurant_list.html', context=context)
 
 # The details of a single restaurant (restaurant_details.html)
 def RestaurantDetails(request, restaurant_id):

@@ -5,21 +5,13 @@ from django.urls import reverse # Used to generate URLs by reversing the URL pat
 
 # Create your models here.
 
-# Type of food a restaurant serves (used for sorting by restaurant type)
-class FoodType(models.Model):
-    """Model representing a type of food."""
-    name = models.CharField(max_length=200)
-
-    def __str__(self):
-        """String for representing the Model object."""
-        return self.name
 
 # Describes a restaurant
 class Restaurant(models.Model):
     name = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
-    location = models.CharField(max_length=200)
-    foodtype = models.ManyToManyField(FoodType, help_text='Select the type of resturaunt')
+    description = models.CharField(max_length=200, default="description")
+    location = models.CharField(max_length=200, default="location")
+    style = models.CharField(max_length=30)
 
     def __str__(self):
         """String for representing the restaurant"""
@@ -28,6 +20,9 @@ class Restaurant(models.Model):
     def get_absolute_url(self):
         """Returns the url to access a detail for this restaurant."""
         return reverse('restaurant-detail', args=[str(self.id)])
+
+    def get_restaurants(self):
+        return self.objects.filter(style="Restaurant").distinct()
 
 
 RATINGS = [

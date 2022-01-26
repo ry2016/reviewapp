@@ -1,13 +1,14 @@
 {% extends "base_nosearch.html" %}
 
 {% block content %}
-    <h2>Restaurant List</h2>
+    <h2>Dining Options</h2>
     <br>
     
+    <h4>Restaurants</h4>
     <!-- List of restaurants -->
-    {% if restaurant_list %}
+    {% if restaurantsRestaurant %}
     <ul>
-      {% for restaurant in restaurant_list %}
+      {% for restaurant in restaurantsRestaurant %}
         <li>
           <a href="{{ restaurant.get_absolute_url }}">{{ restaurant.name }}</a> ({{restaurant.description}})
         </li>
@@ -17,5 +18,36 @@
       <p>There are no restaurants</p>
     {% endif %}
 
+
+    <br>
+    <h4>Cafes</h4>
+    <!-- List of cafes -->
+    {% if restaurantsCafe %}
+    <ul>
+      {% for restaurant in restaurantsCafe %}
+        <li>
+          <a href="{{ restaurant.get_absolute_url }}">{{ restaurant.name }}</a> ({{restaurant.description}})
+        </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>There are no cafes</p>
+    {% endif %}
+
+  
+    <br>
+    <h4>Markets</h4>
+    <!-- List of markets -->
+    {% if restaurantsMarket %}
+    <ul>
+      {% for restaurant in restaurantsMarket %}
+        <li>
+          <a href="{{ restaurant.get_absolute_url }}">{{ restaurant.name }}</a> ({{restaurant.description}})
+        </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>There are no markets</p>
+    {% endif %}
 
 {% endblock %}
