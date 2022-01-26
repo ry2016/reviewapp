@@ -1,0 +1,21 @@
+{% extends "base_nosearch.html" %}
+
+{% block content %}
+    <h2>Restaurant List</h2>
+    <br>
+    
+    <!-- List of restaurants -->
+    {% if restaurant_list %}
+    <ul>
+      {% for restaurant in restaurant_list %}
+        <li>
+          <a href="{{ restaurant.get_absolute_url }}">{{ restaurant.name }}</a> ({{restaurant.description}})
+        </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>There are no restaurants</p>
+    {% endif %}
+
+
+{% endblock %}

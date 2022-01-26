@@ -1,0 +1,20 @@
+{% extends "base_nosearch.html" %}
+
+{% block content %}
+		<h2>{{ restaurant.name }}</h2>
+    <br>
+    <form method="post">
+      {% csrf_token %}
+      {{ form }}
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+    <br>
+    {% if reviews %}
+      {% for review in reviews %}
+          <p>{{ review.text }} {{ review.rating }} </p>
+      {% endfor %}
+    {% else %}
+      <p>There are no reviews for {{ restaurant.name }}. Add yours now!</p>
+    {% endif %}
+
+{% endblock %}
