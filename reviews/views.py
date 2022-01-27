@@ -18,7 +18,7 @@ class RestaurantListView(generic.ListView):
 def RestaurantList(request):
     """View function for home page of site."""
 
-    # Generate counts of some of the main objects
+    # Generate lists of different types of restaurants
     restaurants = Restaurant.objects.all()
     restaurantsRestaurant = Restaurant.objects.filter(style='Restaurant')
     restaurantsCafe = Restaurant.objects.filter(style='Café')
