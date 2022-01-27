@@ -13,16 +13,26 @@ class Restaurant(models.Model):
     location = models.CharField(max_length=200, default="location")
     style = models.CharField(max_length=30)
 
+    # String for representing the restaurant
     def __str__(self):
-        """String for representing the restaurant"""
+        
         return self.name
-
+    
+    # Returns the url to access a detail for this restaurant
     def get_absolute_url(self):
-        """Returns the url to access a detail for this restaurant."""
         return reverse('restaurant-detail', args=[str(self.id)])
 
-    def get_restaurants(self):
-        return self.objects.filter(style="Restaurant").distinct()
+    # Returns average rating that the restaurant has
+    def get_reviews(self):
+        reviews = Review.objects.filter(resturaunt=self.id)
+        if len(reviews) > 0: # if the restaurant has at least 1 review
+            total = 0
+            for review in reviews:
+                total += review.rating
+            return total/len(reviews)
+        else:
+            return 0
+
 
 
 RATINGS = [

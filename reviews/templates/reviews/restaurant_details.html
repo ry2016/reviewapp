@@ -2,7 +2,8 @@
 
 {% block content %}
 		<h2>{{ restaurant.name }}</h2>
-    <br>
+    <h4> {{ restaurant.get_reviews }} </h4>
+    <br> 
     <form method="post">
       {% csrf_token %}
       {{ form }}
