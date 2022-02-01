@@ -29,7 +29,7 @@ class Restaurant(models.Model):
             total = 0
             for review in reviews:
                 total += review.rating
-            return total/len(reviews)
+            return round(total/len(reviews),2)
         else:
             return 0
 
