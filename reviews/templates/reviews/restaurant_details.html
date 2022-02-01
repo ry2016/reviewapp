@@ -2,7 +2,23 @@
 
 {% block content %}
 		<h2>{{ restaurant.name }}</h2>
-    <h6 style="color: gray;"> Average user rating: {{ restaurant.get_reviews }} </h6>
+    
+    {% if restaurant.get_reviews == 0 %}
+      <p style="color: gray;"> No user reviews yet...</p>
+    {% endif %}
+
+    {% if restaurant.get_reviews < 2 and restaurant.get_reviews > 0%}
+      <p style="color: gray;"> Average user rating: <span style="color: #ff6666">{{ restaurant.get_reviews }} </span></p>
+    {% endif %}
+    
+    {% if restaurant.get_reviews > 2 and restaurant.get_reviews < 4 %}
+      <p style="color: gray;"> Average user rating: <span style="color: #ffcc00">{{ restaurant.get_reviews }} </span></p>
+    {% endif %}
+    
+    {% if restaurant.get_reviews > 4 %}
+      <p style="color: gray;"> Average user rating: <span style="color: #00cc66">{{ restaurant.get_reviews }} </span></p>
+    {% endif %}
+    
     <br> 
     <form method="post">
       {% csrf_token %}
