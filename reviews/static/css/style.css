@@ -1,27 +1,49 @@
 .sidebar-nav {
-    margin-top: 20px;
-    padding: 0;
-    list-style: none;
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
 }
 
+body,
+html {
+  height: 100%;
+}
+.bgtest {
+  /* The image used */
+  background-image: url("https://i.imgur.com/3uhIPkZ.jpeg");
 
-  body, html {
-    height: 100%;
-  }
-  .bgtest {
-    /* The image used */
-    background-image: url("https://i.imgur.com/3uhIPkZ.jpeg");
-  
-    /* Half height */
-    height: 40%;
-  
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+  /* Half height */
+  height: 40%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 .review_feild {
   height: 100px;
   width: 400px;
-  }
+}
+/* targets only a's with href  */
+a:link {
+  color: #1098ad;
+  /* remove underline */
+  text-decoration: none;
+}
+
+a:visited {
+  /* visited links */
+  color: #1098ad;
+}
+/* mouse hover */
+a:hover {
+  color: orangered;
+  font-weight: bold;
+  text-decoration: underline dotted orangered;
+}
+/* actlively clicking link */
+a:active {
+  background-color: black;
+  font-style: italic;
+}
