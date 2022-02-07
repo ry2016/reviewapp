@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404
 from reviews.forms import ReviewForm
 
 # Main index page for the reviews app
-def account(request):
+def Account(request):
     return render(request, 'reviews/account.html')
 
 def index(request):
