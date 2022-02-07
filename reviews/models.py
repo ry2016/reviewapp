@@ -15,7 +15,7 @@ class Restaurant(models.Model):
 
     # String for representing the restaurant
     def __str__(self):
-        
+
         return self.name
     
     # Returns the url to access a detail for this restaurant
