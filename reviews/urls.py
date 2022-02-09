@@ -9,6 +9,7 @@ urlpatterns = [
     path('restaurants/', views.RestaurantList, name='restaurants'),
     path('account/', views.Account, name='account'),
     path('restaurants/<int:restaurant_id>', views.RestaurantDetails, name='restaurant-detail'),
+    path('about',views.About, name ='about'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
