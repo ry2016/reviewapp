@@ -13,9 +13,10 @@ def Account(request):
 
 def index(request):
     return render(request, 'reviews/index2.html')
-    
+
 def About(request):
-    return render(request,'reviews/about.html')    
+    return render(request,'reviews/about.html')     
+    
 # The list of restaurants (restaurant_list.html)
 class RestaurantListView(generic.ListView):
     model = Restaurant
@@ -55,6 +56,7 @@ def RestaurantDetails(request, restaurant_id):
         if form.is_valid():
             # process the data in form.cleaned_data as required (here we just write it to the model due_back field)
             review = form.save(commit=False)
+            review.username = form.cleaned_data['username']
             review.text = form.cleaned_data['text']
             review.rating = form.cleaned_data['rating']
             review.resturaunt = restaurantObj
