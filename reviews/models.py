@@ -47,5 +47,6 @@ RATINGS = [
 class Review(models.Model):
     resturaunt = models.ForeignKey(Restaurant, on_delete=models.CASCADE, null=True)
     date = models.DateTimeField( auto_now_add=True)
+    username = models.CharField(max_length=200, default='user')
     text = models.CharField(max_length=3000)
     rating = models.PositiveSmallIntegerField(choices=RATINGS)
