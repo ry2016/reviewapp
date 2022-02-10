@@ -40,7 +40,7 @@ a:visited {
 a:hover {
   color: orangered;
   font-weight: bold;
-  text-decoration: underline orangered;
+  /* text-decoration:orangered; */
 }
 /* actlively clicking link */
 a:active {
