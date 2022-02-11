@@ -6,6 +6,7 @@ from django.views import generic
 from django.views.generic.base import TemplateView
 from django.shortcuts import get_object_or_404
 from reviews.forms import ReviewForm
+from django.db.models import Q # new
 
 # Main index page for the reviews app
 def Account(request):
@@ -40,6 +41,23 @@ def RestaurantList(request):
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'reviews/restaurant_list.html', context=context)
+
+def RestaurantSearch(request):
+    """View function for home page of site."""
+
+    if request.method == "GET":
+        query_name = request.GET.get('q', None)
+        if query_name:
+            if query_name.lower() == "cafe":
+                query_name = "Café"
+            results = Restaurant.objects.filter(
+            Q(name__icontains=query_name) | Q(style__icontains=query_name)
+            )
+            return render(request, 'reviews/restaurant_search.html', {"results":results})
+        else:
+            results = Restaurant.objects.all()
+            return render(request, 'reviews/restaurant_search.html', {"results":results})
+
 
 # The details of a single restaurant (restaurant_details.html)
 def RestaurantDetails(request, restaurant_id):
