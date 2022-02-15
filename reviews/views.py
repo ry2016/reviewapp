@@ -15,7 +15,9 @@ def index(request):
     return render(request, 'reviews/index2.html')
 
 def About(request):
-    return render(request,'reviews/about.html')     
+    return render(request,'reviews/about.html')   
+def Cafes(request):
+    return render(request,'reviews/cafes.html')  
     
 # The list of restaurants (restaurant_list.html)
 class RestaurantListView(generic.ListView):

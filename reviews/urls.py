@@ -10,6 +10,8 @@ urlpatterns = [
     path('account/', views.Account, name='account'),
     path('restaurants/<int:restaurant_id>', views.RestaurantDetails, name='restaurant-detail'),
     path('about',views.About, name ='about'),
+    path('cafes', views.Cafes, name='cafes'),
+
 ]
 
 urlpatterns += staticfiles_urlpatterns()

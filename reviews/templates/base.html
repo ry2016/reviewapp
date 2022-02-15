@@ -67,7 +67,11 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">Campus Map</a>
+              <a 
+              class="nav-link" 
+              aria-current="page" 
+              href="#"
+              >Campus Map</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'about' %}">About</a>
@@ -127,7 +131,8 @@
               type="button"
               id="inputGroupFileAddon03"
             >
-              <i class="fas fa-coffee"></i> Cafes
+              <i class="fas fa-coffee"
+              href="{% url 'cafes' %}"></i> Cafes
             </button>
             <button
               class="btn"
