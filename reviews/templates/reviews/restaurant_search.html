@@ -1,0 +1,11 @@
+{% extends "base_nosearch.html" %}
+
+{% block content %}
+<ul>
+    {% for restaurant in results %}
+      <li>
+        <a href="{{ restaurant.get_absolute_url }}">{{ restaurant.name }}</a> ({{restaurant.description}})
+      </li>
+    {% endfor %}
+
+{% endblock %}
