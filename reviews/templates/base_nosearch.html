@@ -36,7 +36,7 @@
       style="background-color: #ab0032"
     >
       <div class="container-fluid justify-content-center">
-        <a class="navbar-brand" href="#">Wildcat Reviews</a>
+        <a class="navbar-brand" href="{% url 'index2' %}">Wildcat Reviews</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -70,10 +70,14 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">Campus Map</a>
+              <a 
+              class="nav-link active" 
+              aria-current="page" 
+              href="{% url 'campus' %}"
+              >Campus Map</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
+              <a class="nav-link active" href="{% url 'about' %}">About</a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -86,6 +90,16 @@
         </div>
       </div>
     </nav>
+
+    <div class="container" style="padding-top: 20px;">
+      <form action="{% url 'restaurant-search' %}" method="get">
+        <input
+        name="q" type="text"
+        class="form-control"
+        placeholder="Search for restaurants..."
+        />
+      </form>
+    </div>
 
     <br />
     <div class="container">{% block content %}{% endblock %}</div>

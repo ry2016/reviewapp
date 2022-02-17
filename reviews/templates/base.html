@@ -27,13 +27,14 @@
     ></script>
   </head>
   <body>
+
     <!-- Navbar -->
     <nav
       class="navbar navbar-expand-lg navbar-dark"
       style="background-color: #ab0032"
     >
       <div class="container-fluid justify-content-center">
-        <a class="navbar-brand" href="#">Wildcat Reviews</a>
+        <a class="navbar-brand" href="{% url 'index2' %}">Wildcat Reviews</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -68,13 +69,13 @@
             </li>
             <li class="nav-item">
               <a 
-              class="nav-link" 
+              class="nav-link active" 
               aria-current="page" 
-              href="#"
+              href="{% url 'campus' %}"
               >Campus Map</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
+              <a class="nav-link active" href="{% url 'about' %}">About</a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">

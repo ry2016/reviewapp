@@ -16,9 +16,13 @@ def index(request):
     return render(request, 'reviews/index2.html')
 
 def About(request):
-    return render(request,'reviews/about.html')   
+    return render(request,'reviews/about.html')
+
 def Cafes(request):
     return render(request,'reviews/cafes.html')  
+
+def Campus(request):
+    return render(request,'reviews/campus.html')     
     
 # The list of restaurants (restaurant_list.html)
 class RestaurantListView(generic.ListView):
@@ -55,7 +59,7 @@ def RestaurantSearch(request):
             results = Restaurant.objects.filter(
             Q(name__icontains=query_name) | Q(style__icontains=query_name)
             )
-            return render(request, 'reviews/restaurant_search.html', {"results":results})
+            return render(request, 'reviews/restaurant_search.html', {"results":results, "query":query_name})
         else:
             results = Restaurant.objects.all()
             return render(request, 'reviews/restaurant_search.html', {"results":results})

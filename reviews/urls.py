@@ -12,6 +12,7 @@ urlpatterns = [
     path('restaurants/<int:restaurant_id>', views.RestaurantDetails, name='restaurant-detail'),
     path('about',views.About, name ='about'),
     path('cafes', views.Cafes, name='cafes'),
+    path('campus', views.Campus, name='campus'),
 
 ]
 

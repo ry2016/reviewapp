@@ -17,37 +17,71 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #AB0032;">
+        <!-- Navbar -->
+        <nav
+        class="navbar navbar-expand-lg navbar-dark"
+        style="background-color: #ab0032"
+      >
         <div class="container-fluid justify-content-center">
-          <a class="navbar-brand" href="#">Wildcat Reviews</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <a class="navbar-brand" href="{% url 'index2' %}">Wildcat Reviews</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="navbarSupportedContent"
+          >
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="{% url 'index2' %}"
+                  >Home</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Restaurants</a>
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="{% url 'restaurants' %}"
+                  >Restaurants</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'Campus Map' %}">Campus Map</a>
+                <a 
+                class="nav-link active" 
+                aria-current="page" 
+                href="{% url 'campus' %}"
+                >Campus Map</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link active" href="{% url 'about' %}">About</a>
               </li>
             </ul>
-            
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a class="nav-link active" href="{% url 'account' %}"
+                  >My Account <i class="fas fa-user"></i
+                ></a>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
 
       <!-- Jumbotron thing -->
-      <div class="bgtest p-5 bg-secondary text-white text-center">
+      <div class="bgtest2 p-5 bg-secondary text-white text-center">
         <h1 style="font-weight: bold">Campus Map</h1>
-        <p>Find the best restaurants around campus based using Google Maps <br> Google Maps</p> 
+        <p>Find the best restaurants around campus<br>using Google Maps</p> 
       </div>
       <div>
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d21764.74039918417!2d-120.5331817!3d47.0089728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1644382067932!5m2!1sen!2sus" width="100%" height="650"  style="border:0;" allowfullscreen="" loading="lazy"></iframe>

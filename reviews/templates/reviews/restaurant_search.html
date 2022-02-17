@@ -1,6 +1,9 @@
 {% extends "base_nosearch.html" %}
 
 {% block content %}
+{% if not results %}
+  <p>No results for "{{query}}" </p>
+{% endif %}
 <ul>
     {% for restaurant in results %}
       <li>
