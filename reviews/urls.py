@@ -11,7 +11,7 @@ urlpatterns = [
     path('restaurants/', views.RestaurantList, name='restaurants'),
     path('search/', views.RestaurantSearch, name='restaurant-search'),
     path('account/', views.Account, name='account'),
-    path('password_reset/', views.PassReset, name='pass-reset'),
+    path('password_reset/', views.PassReset, name='password-reset'),
     path('restaurants/<int:restaurant_id>', views.RestaurantDetails, name='restaurant-detail'),
     path('about',views.About, name ='about'),
     path('cafes', views.Cafes, name='cafes'),
@@ -21,7 +21,7 @@ urlpatterns = [
 
 urlpatterns += staticfiles_urlpatterns()
 
-#Add Django site authentication urls (for login, logout, password management)
+#Adds Django site authentication urls (for login, logout, password management)
 urlpatterns += [
     path('accounts/', include('django.contrib.auth.urls')),
     # Account creation url

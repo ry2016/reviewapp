@@ -32,8 +32,10 @@
   <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
+<!--Need to add an email config line to test in settings.py-->
 {# Assumes you set up the password_reset view in your URLconf #}
 <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
-<p><a href="{% url 'signup' %}">Need to create an account?</a></p>
+
+<p><a href="{% url 'signup' %}">Click here to create an account!</a></p>
 
 {% endblock %}
