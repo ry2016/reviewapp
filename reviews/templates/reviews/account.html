@@ -1,7 +1,15 @@
-{% extends "base_nosearch.html" %}
+{% extends "base_nosearch.html" %} 
 
-{% block content %}
-	<body>
-        <h1>Account page</h1>
-	</body>
+{% block content %} 
+
+<!--Displays a simple page with a link to go to the login page if not logged in and logout page if logged in-->
+<ul class="sidebar-nav">
+   {% if user.is_authenticated %}
+     <li>User: {{ user.get_username }}</li>
+     <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+   {% else %}
+     <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+   {% endif %}
+  </ul>
+
 {% endblock %}

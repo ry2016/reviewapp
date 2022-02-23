@@ -5,12 +5,43 @@ from .models import Restaurant, Review
 from django.views import generic
 from django.views.generic.base import TemplateView
 from django.shortcuts import get_object_or_404
-from reviews.forms import ReviewForm
+from reviews.forms import ReviewForm, SignUpForm
 from django.db.models import Q # new
+#For defining views requiring the user to be logged in. use @login_required above def to do so
+from django.contrib.auth.decorators import login_required 
+# For signup
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
 
-# Main index page for the reviews app
+
 def Account(request):
     return render(request, 'reviews/account.html')
+
+def Logout(request):
+    return render(request, 'reviews/logged_out.html')
+
+def Login(request):
+    return render(request, 'reviews/login.html')
+
+def PassReset(request):
+    return render(request, 'reviews/password_reset.html')
+
+# Index page for creating an account. Sends user back to the account page
+def Signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('account')
+    else:
+        form = SignUpForm()
+    return render(request, 'signup.html', {'form': form})
+
 
 def index(request):
     return render(request, 'reviews/index2.html')
