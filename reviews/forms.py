@@ -6,9 +6,9 @@ from django.contrib.auth.models import User
 
 # ReviewForm, form that allows users to leave a review for a specific restaurant
 class ReviewForm(forms.ModelForm):
-    username = forms.CharField(max_length=3000, required=False)
+    username = forms.CharField(max_length=30, required=False)
     # Added widget to allow styling
-    text = forms.CharField(max_length=3000, required=True, widget=forms.Textarea(attrs={'class':'textbox'}))
+    text = forms.CharField(max_length=1500, required=True, widget=forms.Textarea(attrs={'class':'textbox'}))
     rating = forms.ChoiceField(choices=RATINGS, required=True)
 
     class Meta:
