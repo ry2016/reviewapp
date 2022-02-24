@@ -12,7 +12,7 @@
   an account that has access.
 </p>
 {% else %}
-<p>Please login:</p>
+<p>Login here:</p>
 {% endif %} {% endif %}
 
 <form method="post" action="{% url 'login' %}">
@@ -28,14 +28,18 @@
     </tr>
   </table>
 
-  <input type="submit" value="login" />
+  <input type="submit" value="Login" />
   <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
 <!--Need to add an email config line to test in settings.py-->
 {# Assumes you set up the password_reset view in your URLconf #}
+<br>
 <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
 
-<p><a href="{% url 'signup' %}">Click here to create an account!</a></p>
+<p>
+  <label>Don't have an account? </label>
+  <a href="{% url 'signup' %}">Click here to create one!</a>
+</p>
 
 {% endblock %}

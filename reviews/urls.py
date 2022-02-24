@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from reviews import views as core_views
 
 urlpatterns = [
-    path('', views.index, name='index2'),
+    path('', views.Home, name='home'),
     path('restaurants/', views.RestaurantList, name='restaurants'),
     path('search/', views.RestaurantSearch, name='restaurant-search'),
     path('account/', views.Account, name='account'),

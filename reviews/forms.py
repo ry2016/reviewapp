@@ -6,9 +6,10 @@ from django.contrib.auth.models import User
 
 # ReviewForm, form that allows users to leave a review for a specific restaurant
 class ReviewForm(forms.ModelForm):
-    username = forms.CharField(max_length=3000, required=True)
-    text = forms.CharField(max_length=3000, required=True)
-    rating = forms.ChoiceField(choices=RATINGS, required=False)
+    username = forms.CharField(max_length=30, required=False)
+    # Added widget to allow styling
+    text = forms.CharField(max_length=1500, required=True, widget=forms.Textarea(attrs={'class':'textbox'}))
+    rating = forms.ChoiceField(choices=RATINGS, required=True)
 
     class Meta:
         model = Review
@@ -18,7 +19,7 @@ class ReviewForm(forms.ModelForm):
 class SignUpForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
     last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
-    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+    email = forms.EmailField(max_length=254, help_text='Required. Enter a valid email address.')
 
     class Meta:
         model = User

@@ -1,4 +1,4 @@
-{% extends "base_nosearch.html" %}
+{% extends "base_search.html" %}
 
 {% block content %}
 		<h2>{{ restaurant.name }}</h2>
@@ -19,13 +19,26 @@
       <p style="color: gray;"> Average user rating: <span style="color: #00cc66">{{ restaurant.get_reviews }} </span></p>
     {% endif %}
     
-    <br> 
+     
     <form method="post">
       {% csrf_token %}
-      {{ form }}
+      <!--Show username if logged in, else show as Anonymous-->
+      {% if user.is_authenticated %}
+      <label>Logged in as: </label>
+      <a href="{% url 'account' %}">{{ user.get_username }}</a>
+      {% else %}
+      <label>You will be posting this review anonymously. </label>    
+      <a href="{% url 'signup' %}">Click here to create an account</a>
+      <label>or </label>
+      <a href="{% url 'login'%}?next={{request.path}}">click here to login!</a>      
+      {% endif %}
+      <!--Display form values for the user to input (username info is already handled inside the form view)-->
+      <td>{{ form.text }}</td>
+      <br>
+      <td>{{ form.rating }}</td>
       <button type="submit" class="btn btn-success">Submit</button>
     </form>
-    <br>
+    
     {% if reviews %}
       {% for review in reviews %}
       <div style="padding-top: 25px;">
@@ -40,6 +53,7 @@
         </div>
       {% endfor %}
     {% else %}
+      <br>
       <p>There are no reviews for {{ restaurant.name }}. Add yours now!</p>
 
     {% endif %}
