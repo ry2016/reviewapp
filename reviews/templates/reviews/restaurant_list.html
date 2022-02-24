@@ -7,13 +7,24 @@
     <h4>Restaurants</h4>
     <!-- List of restaurants -->
     {% if restaurantsRestaurant %}
-    <ul>
       {% for restaurant in restaurantsRestaurant %}
-        <li>
-          <a href="{{ restaurant.get_absolute_url }}">{{ restaurant.name }}</a> ({{restaurant.description}})
-        </li>
+      <a id="restCard" href="{{ restaurant.get_absolute_url }}">
+        <div class="card mb-3" style="max-width: 700px;">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="https://via.placeholder.com/100" class="card-img" style="margin-left: auto; max-width: 180px; padding: 10px;">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ restaurant.name }}</h5>
+                <p class="card-text">Rating: {{ restaurant.get_reviews }}</p>
+                <p class="card-text">{{restaurant.description}} This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
       {% endfor %}
-    </ul>
     {% else %}
       <p>There are no restaurants</p>
     {% endif %}
@@ -22,14 +33,25 @@
     <br>
     <h4>Cafés</h4>
     <!-- List of cafes -->
-    {% if restaurantsCafe %}
-    <ul>
-      {% for restaurant in restaurantsCafe %}
-        <li>
-          <a href="{{ restaurant.get_absolute_url }}">{{ restaurant.name }}</a> ({{restaurant.description}})
-        </li>
+    {% if restaurantsRestaurant %}
+      {% for restaurant in restaurantsRestaurant %}
+      <a id="restCard" href="{{ restaurant.get_absolute_url }}">
+        <div class="card mb-3" style="max-width: 700px;">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="https://via.placeholder.com/100" class="card-img" style="margin-left: auto; max-width: 180px; padding: 10px;">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ restaurant.name }}</h5>
+                <p class="card-text">Rating: {{ restaurant.get_reviews }}</p>
+                <p class="card-text">{{restaurant.description}} This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
       {% endfor %}
-    </ul>
     {% else %}
       <p>There are no cafes</p>
     {% endif %}
@@ -38,14 +60,25 @@
     <br>
     <h4>Markets</h4>
     <!-- List of markets -->
-    {% if restaurantsMarket %}
-    <ul>
-      {% for restaurant in restaurantsMarket %}
-        <li>
-          <a href="{{ restaurant.get_absolute_url }}">{{ restaurant.name }}</a> ({{restaurant.description}})
-        </li>
+    {% if restaurantsRestaurant %}
+      {% for restaurant in restaurantsRestaurant %}
+      <a id="restCard" href="{{ restaurant.get_absolute_url }}">
+        <div class="card mb-3" style="max-width: 700px;">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="https://via.placeholder.com/100" class="card-img" style="margin-left: auto; max-width: 180px; padding: 10px;">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{ restaurant.name }}</h5>
+                <p class="card-text">Rating: {{ restaurant.get_reviews }}</p>
+                <p class="card-text">{{restaurant.description}} This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
       {% endfor %}
-    </ul>
     {% else %}
       <p>There are no markets</p>
     {% endif %}

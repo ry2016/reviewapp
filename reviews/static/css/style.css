@@ -15,6 +15,7 @@ html {
   /* Half height */
   height: 40%;
 
+
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
@@ -58,27 +59,36 @@ a:visited {
   /* visited links */
   color: #1098ad;
 }
+
+#restLink {
+  color:rgb(255, 255, 255);
+}
+
+#restCard {
+  color:rgb(0, 0, 0);
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* mouse hover */
 a:hover {
   color: orangered;
   font-weight: bold;
-  /* text-decoration:orangered; */
 }
 /* actlively clicking link */
 a:active {
-  /* background-color: black; */
   font-style: italic;
-}
+} 
 
 .card {
   /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
 }
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Add some padding inside the card container */
