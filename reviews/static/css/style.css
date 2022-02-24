@@ -35,15 +35,6 @@ html {
   background-size: cover;
 }
 
-/*Makes the text displayed on the image above readable*/
-.image_text{
-  font-weight: bold;
-  font-size: 20px;
-  -webkit-text-stroke:0.8px black;
-  -webkit-text-fill-color:white;
-}
-
-
 .review_feild {
   height: 100px;
   width: 400px;
@@ -96,17 +87,61 @@ a:active {
   padding: 2px 16px;
 }
 
-/* Big text box for user to type review into*/
-.textbox{
-  width: 100%;
-  height: 150px;
-  max-height: 200px;
-  min-height: 50px;
-  margin: 8px 0;
-  padding: 12px 20px;
+* {
   box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: #f8f8f8;
+}
+
+/* Style inputs */
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
   resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: #04aa6d;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Style the container/contact section */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+/* Create two columns that float next to eachother */
+.column {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column,
+  input[type="submit"] {
+    width: 100%;
+    margin-top: 0;
+  }
 }
