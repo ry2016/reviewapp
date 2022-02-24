@@ -6,9 +6,9 @@
 {% else %}
     {% for restaurant in results %}
     <a id="restCard" href="{{ restaurant.get_absolute_url }}">
-      <div class="card mb-3" style="max-width: 700px;">
+      <div class="card mb-3" style="max-width: 1000px;">
         <div class="row no-gutters">
-          <div class="col-md-4">
+          <div class="col-md-3">
             <img src={{ restaurant.get_image }} class="card-img" style="margin-left: auto; max-width: 180px; padding: 10px">
           </div>
           <div class="col-md-8">
