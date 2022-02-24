@@ -7,12 +7,22 @@ from django.urls import reverse # Used to generate URLs by reversing the URL pat
 # Create your models here.
 
 
+# Describes a tag
+class Tag(models.Model):
+    """Model representing tag"""
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.name
+
 # Describes a restaurant
 class Restaurant(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=200, default="description")
     location = models.CharField(max_length=200, default="location")
-    style = models.CharField(max_length=30)
+    style = models.CharField(max_length=30, default="Restaurant")
+    tag = models.ManyToManyField(Tag, help_text='tags')
 
     # String for representing the restaurant
     def __str__(self):
