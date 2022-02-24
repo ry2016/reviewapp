@@ -35,9 +35,8 @@ html {
   background-size: cover;
 }
 
-.review_feild {
-  height: 100px;
-  width: 400px;
+.review_field {
+  min-height: 60px;
 }
 /* targets only a's with href  */
 a:link {
@@ -98,6 +97,7 @@ textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
+  max-height: 200px;
   margin-top: 6px;
   margin-bottom: 16px;
   resize: vertical;
