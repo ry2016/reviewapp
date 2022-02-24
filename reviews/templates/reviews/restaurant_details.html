@@ -19,6 +19,7 @@
       <p style="color: gray;"> Average user rating: <span style="color: #00cc66">{{ restaurant.get_reviews }} </span></p>
     {% endif %}
     
+    <p>{{restaurant.description}}</p>
      
     <form method="post">
       {% csrf_token %}

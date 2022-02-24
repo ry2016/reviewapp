@@ -19,15 +19,18 @@ class Tag(models.Model):
 # Describes a restaurant
 class Restaurant(models.Model):
     name = models.CharField(max_length=200)
-    description = models.CharField(max_length=200, default="description")
+    description = models.CharField(max_length=500, default="description")
     location = models.CharField(max_length=200, default="location")
     style = models.CharField(max_length=30, default="Restaurant")
-    tag = models.ManyToManyField(Tag, help_text='tags')
+    image_url = models.URLField(max_length = 300, default="", blank=True, null=True)
+    tag = models.ManyToManyField(Tag, help_text='tags', blank=True, null=True)
 
     # String for representing the restaurant
     def __str__(self):
-
         return self.name
+
+    def get_image(self):
+        return self.image_url
     
     # Returns the url to access a detail for this restaurant
     def get_absolute_url(self):

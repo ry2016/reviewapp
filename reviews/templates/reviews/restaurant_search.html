@@ -5,22 +5,22 @@
   <p>No results for "{{query}}" </p>
 {% else %}
     {% for restaurant in results %}
-      <a id="restCard" href="{{ restaurant.get_absolute_url }}">
-        <div class="card mb-3" style="max-width: 700px;">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="https://via.placeholder.com/100" class="card-img" style="margin-left: auto; max-width: 180px; padding: 10px;">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">{{ restaurant.name }}</h5>
-                <p class="card-text">Rating: {{ restaurant.get_reviews }}</p>
-                <p class="card-text">{{restaurant.description}} This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
+    <a id="restCard" href="{{ restaurant.get_absolute_url }}">
+      <div class="card mb-3" style="max-width: 700px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src={{ restaurant.get_image }} class="card-img" style="margin-left: auto; max-width: 180px; padding: 10px">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ restaurant.name }}</h5>
+              <p class="card-text">Rating: {{ restaurant.get_reviews }}</p>
+              <p class="card-text"><small>{{restaurant.description}}</small></p>
             </div>
           </div>
         </div>
-      </a>
+      </div>
+    </a>
     {% endfor %}
 {% endif %}
 
