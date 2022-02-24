@@ -14,8 +14,8 @@
     <br />
     <p>
       This website allows students at CWU to rate and review the various dining
-      options on the CWU Ellensburg campus. It was designed as
-      a group project for CS380 Introduction to Software Engineering. This site was created by:
+      options on the CWU Ellensburg campus. It was designed as a group project
+      for CS380 Introduction to Software Engineering. This site was created by:
     </p>
     <br />
     <div class="card">
@@ -51,7 +51,7 @@
     </div>
     <br />
     <div class="card">
-      <!-- <img src="CWU_wordmark.png" alt="Avatar" style="width: 100%" /> -->
+      <img src="CWU_wordmark.png" alt="Avatar" style="width: 100%" />
       <div class="container">
         <h4><b>Ryan G</b></h4>
         <p>CS Major</p>
@@ -67,6 +67,49 @@
       </div>
     </div>
     <br />
+    <div class="container">
+      <div style="text-align: center">
+        <h2>Contact Us</h2>
+        <p>Please leave us a review and what you would like to see:</p>
+      </div>
+      <div class="row">
+        <div class="column">
+          <img src="/w3images/map.jpg" style="width: 100%" />
+        </div>
+        <div class="column">
+          <form action="/action_page.php">
+            <label for="fname">First Name</label>
+            <input
+              type="text"
+              id="fname"
+              name="firstname"
+              placeholder="Your name.."
+            />
+            <label for="lname">Last Name</label>
+            <input
+              type="text"
+              id="lname"
+              name="lastname"
+              placeholder="Your last name.."
+            />
+            <label for="country">Field</label>
+            <select id="country" name="country">
+              <!-- <option value="australia">Australia</option> -->
+              <option value="canada">Student</option>
+              <option value="usa">Faculty</option>
+            </select>
+            <label for="subject">Subject</label>
+            <textarea
+              id="subject"
+              name="subject"
+              placeholder="Write something.."
+              style="height: 170px"
+            ></textarea>
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
 {% endblock %}
