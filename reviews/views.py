@@ -43,8 +43,8 @@ def Signup(request):
     return render(request, 'signup.html', {'form': form})
 
 
-def index(request):
-    return render(request, 'reviews/index2.html')
+def Home(request):
+    return render(request, 'reviews/home.html')
 
 def About(request):
     return render(request,'reviews/about.html')
@@ -111,7 +111,13 @@ def RestaurantDetails(request, restaurant_id):
         if form.is_valid():
             # process the data in form.cleaned_data as required (here we just write it to the model due_back field)
             review = form.save(commit=False)
-            review.username = form.cleaned_data['username']
+
+            #Set username as default anonymous else use their username
+            if request.user.is_authenticated:
+                review.username = request.user.username
+            else:
+                review.username = 'Anonymous'
+
             review.text = form.cleaned_data['text']
             review.rating = form.cleaned_data['rating']
             review.resturaunt = restaurantObj
