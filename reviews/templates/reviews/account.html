@@ -2,14 +2,15 @@
 
 {% block content %} 
 
-<!--Want to be able to display all reviews left by this user on this page-->
 <!--Displays a simple page with a link to go to the login page if not logged in and logout page if logged in-->
 <ul class="sidebar-nav">
    {% if user.is_authenticated %}
-     <h4>Welcome: {{ user.get_username }}</h4>
+     <h4>Welcome, {{ user.get_username }}!</h4>
      <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
      <br>
-     <h5>Your reviews<h5>
+     <!--Displays all reviews that the user has submitted-->
+     <h5>Your reviews: <h5>
+      
      {% if reviews %}
       {% for review in reviews %}
       <a id="restCard" href="{{ review.get_url }}">
@@ -26,12 +27,13 @@
       </a>
       {% endfor %}
     {% else %}
-      <br>
-      <p>There are no reviews for {{ restaurant.name }}. Add yours now!</p>
-
+      <p>No reviews found...
+        <a href="{% url 'restaurants'%}">start writing some right now!</a>
+      </p>
     {% endif %}
    {% else %}
-     <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+     <a href="{% url 'login'%}?next={{request.path}}">Login here</a>
+     <label> to keep track of all the reviews you submit!</label>
    {% endif %}
   </ul>
 
