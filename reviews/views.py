@@ -16,7 +16,13 @@ from django.shortcuts import render, redirect
 
 
 def Account(request):
-    return render(request, 'reviews/account.html')
+    context = {}
+    if request.user.is_authenticated:
+        userReviews = Review.objects.filter(user=request.user)
+        context = {
+            'reviews': userReviews
+        }
+    return render(request, 'reviews/account.html', context)
 
 def Logout(request):
     return render(request, 'reviews/logged_out.html')
@@ -115,6 +121,7 @@ def RestaurantDetails(request, restaurant_id):
             #Set username as default anonymous else use their username
             if request.user.is_authenticated:
                 review.username = request.user.username
+                review.user = request.user
             else:
                 review.username = 'Anonymous'
 
