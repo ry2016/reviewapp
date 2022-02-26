@@ -2,14 +2,38 @@
 
 {% block content %} 
 
-<!--Want to be able to display all reviews left by this user on this page-->
 <!--Displays a simple page with a link to go to the login page if not logged in and logout page if logged in-->
 <ul class="sidebar-nav">
    {% if user.is_authenticated %}
-     <li>User: {{ user.get_username }}</li>
+     <h4>Welcome, {{ user.get_username }}!</h4>
      <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+     <br>
+     <!--Displays all reviews that the user has submitted-->
+     <h5>Your reviews: <h5>
+      
+     {% if reviews %}
+      {% for review in reviews %}
+      <a id="restCard" href="{{ review.get_url }}">
+        <div style="padding-bottom: 25px;">
+            <div class="card" style="width: 600px;">
+              <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted"> {{ review.username }}</h6>
+                <p class="card-subtitle mb-2 text-muted" style="font-size: 14px;">Rating: {{ review.rating }}</p>
+                <p class="card-text">{{ review.text }}</p>
+                <p class="card-text"><small class="text-muted" style="font-size: 11px;">Reviewed on {{ review.date }} for {{ review.get_restaurant_name}}</small></p>
+              </div>
+            </div>
+        </div>
+      </a>
+      {% endfor %}
+    {% else %}
+      <p>No reviews found...
+        <a href="{% url 'restaurants'%}">start writing some right now!</a>
+      </p>
+    {% endif %}
    {% else %}
-     <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+     <a href="{% url 'login'%}?next={{request.path}}">Login here</a>
+     <label> to keep track of all the reviews you submit!</label>
    {% endif %}
   </ul>
 

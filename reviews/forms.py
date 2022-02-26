@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 class ReviewForm(forms.ModelForm):
     username = forms.CharField(max_length=30, required=False)
     # Added widget to allow styling
-    text = forms.CharField(max_length=1500, required=True, widget=forms.Textarea(attrs={'class':'textbox'}))
+    text = forms.CharField(max_length=1500, required=True, widget=forms.Textarea(attrs={'class':'textbox review_field'}))
     rating = forms.ChoiceField(choices=RATINGS, required=True)
 
     class Meta:
