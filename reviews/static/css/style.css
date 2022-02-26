@@ -15,7 +15,6 @@ html {
   /* Half height */
   height: 40%;
 
-
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
@@ -39,6 +38,7 @@ html {
   height: 100px;
   width: 400px;
 }
+/* mouse functionality  */
 /* targets only a's with href  */
 a:link {
   color: #1098ad;
@@ -50,17 +50,6 @@ a:visited {
   /* visited links */
   color: #1098ad;
 }
-
-#restLink {
-  color:rgb(255, 255, 255);
-}
-
-#restCard {
-  color:rgb(0, 0, 0);
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* mouse hover */
 a:hover {
   color: orangered;
@@ -69,8 +58,19 @@ a:hover {
 /* actlively clicking link */
 a:active {
   font-style: italic;
-} 
+}
+/* what is this for? */
+#restLink {
+  color: rgb(255, 255, 255);
+}
 
+#restCard {
+  color: rgb(0, 0, 0);
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* contact cards for about page  */
 .card {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2);
@@ -87,6 +87,8 @@ a:active {
   padding: 2px 16px;
 }
 
+/* 
+css for contact us section in about page */
 * {
   box-sizing: border-box;
 }
@@ -114,7 +116,6 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #45a049;
 }
-
 
 /* Create two columns that float next to eachother */
 .column {
