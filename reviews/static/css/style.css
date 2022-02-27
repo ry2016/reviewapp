@@ -106,7 +106,8 @@ css for contact us section in about page */
 .review_field{
   width: 100%;
   height: 150px;
-  min-height: 80px;
+  min-height: 53px;
+  max-height: 393px;
   padding: 12px 20px;
   box-sizing: border-box;
   border: 2px solid #ccc;

@@ -28,13 +28,14 @@
       <label>Logged in as: </label>
       <a href="{% url 'account' %}">{{ user.get_username }}</a>
       {% else %}
-      <label>You will be posting this review anonymously. </label>    
+      <label style="font-weight: bold;">You will be posting this review anonymously. </label>    
       <a href="{% url 'signup' %}">Click here to create an account</a>
       <label>or </label>
       <a href="{% url 'login'%}?next={{request.path}}">click here to login!</a>      
       {% endif %}
       <!--Display form values for the user to input (username info is already handled inside the form view)-->
       <td>{{ form.text }}</td>
+      <small style="color: grey">{{ form.text.help_text }}</small>
       <br>
       <td>{{ form.rating }}</td>
       <button type="submit" class="btn btn-success">Submit</button>
