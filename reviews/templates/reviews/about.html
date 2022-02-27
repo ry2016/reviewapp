@@ -88,7 +88,7 @@
       <div style="text-align: center">
         <h2>Contact Us</h2>
         <p>
-          Please leave us a review, and improvements you would like to see:
+          Please leave us a review if you have any improvements you would like to see:
         </p>
       </div>
       <br />
@@ -104,6 +104,7 @@
               id="fname"
               name="firstname"
               placeholder="Your name.."
+              class="about"
             />
             <label for="lname">Last Name</label>
             <input
@@ -111,19 +112,20 @@
               id="lname"
               name="lastname"
               placeholder="Your last name.."
+              class="about"
             />
-            <label for="country">Field</label>
+            <label for="country">Who you are: </label>
             <select id="country" name="country">
               <!-- <option value="australia">Australia</option> -->
               <option value="canada">Student</option>
               <option value="usa">Faculty</option>
             </select>
-            <label for="subject">Subject</label>
             <textarea
               id="subject"
               name="subject"
-              placeholder="Write something.."
+              placeholder="Write your review here..."
               style="height: 170px"
+              class="about"
             ></textarea>
             <input type="submit" value="Submit" />
           </form>
